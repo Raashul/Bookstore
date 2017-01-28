@@ -1,4 +1,3 @@
-Boilerplate code for FAQ system using MEAN stack
 
 1. git clone
 
