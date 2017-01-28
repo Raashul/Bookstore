@@ -1,0 +1,42 @@
+ <div class="container">
+
+   <div class="alert alert-success" ng-if="incommingPost.length > 0">
+         <a ng-click="setNewPost()" >There are {{difference}} new posts</a>
+  </div>
+
+
+
+  <div ng-repeat='post in posts'>
+     <div class="row">
+        <div class="col-xs-6 col-md-4">
+          <p>
+          <strong class="lead">{{post.name}}</strong>
+          </p>
+          <br>
+          <p>{{post.date | date : 'MM/dd/yy'}}</p>
+
+         </div>
+
+        <div class="col-xs-6 col-md-8">
+         <p>
+         <a class="lead" ng-click="getQuestion(user._id)">{{post.item_name}} -> {{post.item_price}}$  </a> <br> {{post.item_text}}
+         </p>
+
+         <div class="image">
+           The image goes here
+
+         </div>
+
+         </div>
+
+    </div>
+
+      <hr>
+  </div>
+
+
+
+</div>
+
+
+

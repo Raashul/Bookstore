@@ -1,0 +1,68 @@
+/*
+Base elements
+*/
+
+
+body{
+    font-family: "Inconsolata", serif;
+}
+
+#questions{
+    height: 60px;
+    widows: 75%;
+}
+
+
+
+.signupForm{
+
+  width: 50%;
+  height: 50%;
+  margin: 0 auto;
+   margin-top: 100px;
+
+}
+#signupButton{
+  width: 100px;
+  height: 40px;
+  text-align: center;
+}
+
+
+.post{
+    background-color: grey;
+    height: 100%;
+}
+
+
+.textarea{
+	margin-top: 50px;
+}
+
+#footer {
+  	position: relative;
+    bottom: 0;
+    width: 100%;
+    font-size: 1em;
+    margin-top: 40px;
+}
+
+#footer p{
+    text-align: center;
+}
+
+
+.m-left{
+    margin-left: 15px;
+	color: black;
+}
+
+.m-left:hover{
+    cursor: pointer;
+    font-size: 40px;
+ }
+
+
+.width{
+  width: 60%;
+}

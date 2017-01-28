@@ -1,0 +1,58 @@
+<div class="container width">
+
+
+
+	<div class="form-group row">
+	  <label for="name-input" class="col-2 col-form-label">Name</label>
+	  <div class="col-10">
+	    <input class="form-control" type="text" value="Fixed value" id="name-input" ng-model ="name" >
+	  </div>
+	</div>
+
+	<div class="form-group row">
+	  <label for="email-input" class="col-2 col-form-label">Email</label>
+	  <div class="col-10">
+	    <input class="form-control" type="email"  id="email-input" ng-model ="email" value="fixedemail@gmail.com" >
+	  </div>
+	</div>
+
+	<div class="form-group row">
+	  <label for="item-name-input" class="col-2 col-form-label">Item Name</label>
+	  <div class="col-10">
+	    <input class="form-control" type="text" value="" id="item-name-input" ng-model ="item" >
+	  </div>
+	</div>
+
+
+	<div class="form-group row">
+	  <label for="text-input" class="col-2 col-form-label">Text</label>
+	  <div class="col-10">
+	    <textarea class="form-control" id="text-input" rows="4"  ng-model ="text"></textarea>
+	  </div>
+	</div>
+
+	<div class="form-group row">
+	  <label for="photo-input" class="col-2 col-form-label">Photo</label>
+	  <div class="col-10">
+	    <input type="file" class="form-control-file" id="photo-input" aria-describedby="fileHelp"  ng-model ="file">
+	  </div>
+	</div>
+
+	<div class="form-group row">
+	  <label for="price-input" class="col-2 col-form-label">Price ($)</label>
+	  <div class="col-10">
+	    <input class="form-control" type="number" value="" id="price-input" ng-model ="price">
+	  </div>
+	</div>
+
+
+	 <center>
+	   <button type="submit" class="btn btn-primary" ng-click="postItem()">Submit</button>
+
+
+	 </center>
+
+
+</div>
+
+
