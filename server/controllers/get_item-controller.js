@@ -1,6 +1,9 @@
 var mongoose 	= require('mongoose');
 var Post		= require('../datasets/posts');
 
+
+
+//This function is to display all Posts in the Home Page
 module.exports.postQuestion = function(req,res){
 
     var post = new Post(req.body);
@@ -20,6 +23,7 @@ module.exports.postQuestion = function(req,res){
 
 };
 
+//This function
 
 module.exports.getItem = function(req, res){
 

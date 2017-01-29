@@ -17,17 +17,40 @@
 
          </div>
 
-        <div class="col-xs-6 col-md-8">
+        <div class="col-xs-6 col-md-4">
          <p>
-         <a class="lead" ng-click="getQuestion(user._id)"><strong>{{post.item_name}}</strong> Price - {{post.item_price}}$  </a> <br> {{post.item_text}}
+         <a class="lead" ng-click="getQuestion(user._id)"><strong>{{post.item_name}}</strong> </a>
+
+         <br> <br>
+         {{post.item_text}}
+         <br>
+         <br>
+         <br>
          </p>
 
          <div class="image">
-           The image goes here
+          <a href=""><img class="item_image" ng-src="{{post.image}}"></a>
 
          </div>
 
          </div>
+
+        <div class="col-xs-6 col-md-2">
+         <p>
+         Price
+         <p class="lead" ng-click="getQuestion(user._id)"><strong>{{post.item_price}}$</strong></p>
+         </p>
+
+         </div>
+
+          <div class="col-xs-6 col-md-2">
+         <p>
+         Edition/Version
+         <p class="lead" ng-click="getQuestion(user._id)"><strong>{{post.item_version}}</strong></p>
+         </p>
+
+         </div>
+
 
     </div>
 

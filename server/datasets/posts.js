@@ -12,6 +12,10 @@ module.exports = mongoose.model('Book_Rental', {
 
   item_price: Number,
 
+  item_version: String,
+
+  image: String,
+
   date : {type: Date, default: Date.now}
 
 });

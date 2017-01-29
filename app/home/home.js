@@ -22,6 +22,9 @@
 
                     if(initial){
                         $scope.posts = response;
+                        console.log($scope.posts);
+
+                        console.log($scope.posts.image);
                     }else{
                         if(response.length > $scope.users.length){
                             $scope.incommingPost = response;
@@ -47,7 +50,7 @@
 
                 }
 
-            }, 10000)
+            }, 100000)
 
             $scope.setNewPost = function(){
                 $scope.posts = angular.copy($scope.incommingPost);

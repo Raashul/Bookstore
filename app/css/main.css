@@ -13,6 +13,22 @@ body{
 }
 
 
+.image{
+  height: 250px;
+  width: 250px;
+}
+
+.image img{
+  width: 100%;
+  height: 100%;
+}
+
+.item_image:hover{
+  transform: scale(1.2);
+}
+}
+
+
 
 .signupForm{
 
