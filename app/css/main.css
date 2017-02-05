@@ -24,9 +24,9 @@ body{
 }
 
 .item_image:hover{
-  transform: scale(1.2);
+  transform: scale(1.1);
 }
-}
+
 
 
 
@@ -82,3 +82,5 @@ body{
 .width{
   width: 60%;
 }
+
+

@@ -9,6 +9,9 @@
     "fs-extra": "^0.30.0",
     "mongoose": "^4.6.1",
     "ng-file-upload": "^12.2.13",
+    "passport": "^0.3.2",
+    "passport-facebook": "^2.1.1",
+    "passport-local": "^1.0.0",
     "path": "^0.12.7"
   }
 }

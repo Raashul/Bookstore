@@ -4,8 +4,6 @@
 
         $urlRouterProvider.otherwise('/');
 
-
-
 			$stateProvider
 				.state('signUp',{
 					url: "/signup",
@@ -28,11 +26,17 @@
         })
 
         .state('question-answer', {
-        url: '/post?id',
-        templateUrl: 'app/qa/qa.html',
-        controller:'QaController'
+            url: '/post?id',
+            templateUrl: 'app/qa/qa.html',
+            controller:'QaController'
 
-      });
+      })
+
+        .state('/login',{
+            url: '/login',
+            templateUrl:"app/login/login.html",
+            //controller: "LoginController"
+        });
 
 
 

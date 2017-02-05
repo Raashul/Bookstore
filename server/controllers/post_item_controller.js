@@ -29,19 +29,18 @@ module.exports.postItem = function(req, res){
 			console.log(err);
 			res.send('There was an error uploading the file. Try Again Later');
 		}else{
-			console.log('file name changed');
+
 			post.image = savePath;
-			console.log(post);
+
 
 			post.save(function(err){
-				console.log('trying to save data');
+
 				//console.log(err);
 				if(err){
 					console.log(err);
 					res.send('There was an error. Please try again');
 				}else{
-					res.redirect('/');
-					res.render('/');
+
 				}
 
 			});

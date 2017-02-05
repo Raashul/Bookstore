@@ -22,9 +22,6 @@
 
                     if(initial){
                         $scope.posts = response;
-                        console.log($scope.posts);
-
-                        console.log($scope.posts.image);
                     }else{
                         if(response.length > $scope.users.length){
                             $scope.incommingPost = response;
@@ -42,10 +39,8 @@
 
             $interval(function(){
                 getWaste(false);
-                 console.log('working');
+
                 if($scope.incommingPost){
-                    console.log($scope.incommingPost);
-                   console.log('there is a difference');
                 $scope.difference = $scope.incommingPost.length - $scope.users.length;
 
                 }
