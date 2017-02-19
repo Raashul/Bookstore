@@ -23,12 +23,6 @@ body{
   height: 100%;
 }
 
-.item_image:hover{
-  transform: scale(1.1);
-}
-
-
-
 
 .signupForm{
 
@@ -81,6 +75,11 @@ body{
 
 .width{
   width: 60%;
+}
+
+.custom_font{
+  font-size: 1.4em;
+  font-family: "Droid Sans"
 }
 
 

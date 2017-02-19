@@ -13,6 +13,20 @@ module.exports = mongoose.model('Book_Rental_Users', {
 		username: String,
 
 		email: String,
+	},
+
+
+	google :{
+
+		name : String,
+
+		token: String,
+
+		id: String,
+
+		username: String,
+
+		email: String,
 	}
 
 

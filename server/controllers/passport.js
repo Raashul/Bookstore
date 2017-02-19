@@ -3,12 +3,12 @@ var FacebookStrategy = require('passport-facebook').Strategy;
 var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 
 // load up the user model
-var User       = require('../../server/datasets/users.js');
+var User       = require('../datasets/users.js');
 
 // load the auth variables
-var configAuth = require('./auth');
+var configAuth = require('../../app/config/auth.js');
 
-module.exports = function(passport) {
+module.exports = function(passport, req, res) {
 
 
 
@@ -36,14 +36,21 @@ module.exports = function(passport) {
         process.nextTick(function(){
 
             console.log('testing');
-            console.log(req.user);
 
             User.findOne({'facebook.id': profile.id}, function(err, user){
                 if(err){
                      return done(err);
                 }if(user){
 
-                    console.log('user found');
+                    var user = {
+                        "id":     user._id,
+                        "name":   user.facebook.name,
+                    }
+
+                    // console.log('user is');
+                    // console.log(user);
+                    // res.json(user);
+
                     return done(null, user);
                 }else{
 
@@ -53,17 +60,33 @@ module.exports = function(passport) {
                     newUser.facebook.token = accessToken;
                     newUser.facebook.name  = profile.name.givenName + ' ' + profile.name.familyName;
 
+
+
                     newUser.save(function(err){
                         if(err){
+
+
+                    var user = {
+                        "id":     user._id,
+                        "name":   user.facebook.name,
+                    }
+
+                            // console.log('user is');
+                            // console.log(user);
+                            // res.json(user);
+
                             throw err;
 
                         }else{
+
                             return done(null, newUser);
                         }
                     })
                 }
             })
         })
+
+
 
       }
     ));
@@ -86,6 +109,11 @@ module.exports = function(passport) {
 
                 console.log('returning user');
                 console.log(user);
+
+
+                // console.log('json should be ');
+                // console.log(test);
+
                 if(err){
                      return done(err);
                 }if(user){

@@ -27,6 +27,7 @@ module.exports.postQuestion = function(req,res){
 
 module.exports.getItem = function(req, res){
 
+
     Post.find({})
         .sort({date:-1}).exec(function(err, allPosts){
         if(err){

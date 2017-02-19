@@ -25,17 +25,17 @@
             controller: "PostItemController"
         })
 
-        .state('question-answer', {
+        .state('more_info', {
             url: '/post?id',
-            templateUrl: 'app/qa/qa.html',
-            controller:'QaController'
+            templateUrl: 'app/more_info/more_info.html',
+            controller:'MoreInfoController'
 
       })
 
         .state('/login',{
             url: '/login',
             templateUrl:"app/login/login.html",
-            //controller: "LoginController"
+            controller: "LoginController"
         });
 
 

@@ -7,54 +7,54 @@
 
 
   <div ng-repeat='post in posts'>
-     <div class="row">
-        <div class="col-xs-6 col-md-4">
-          <p>
+    <div class="row">
+      <div class="col-md-4">
+         <p>
           <strong class="lead">{{post.name}}</strong>
           </p>
           <br>
           <p>{{post.date | date : 'MM/dd/yy'}}</p>
 
-         </div>
+      </div>
 
-        <div class="col-xs-6 col-md-4">
-         <p>
-         <a class="lead" ng-click="getQuestion(user._id)"><strong>{{post.item_name}}</strong> </a>
 
-         <br> <br>
-         {{post.item_text}}
-         <br>
-         <br>
-         <br>
+      <div class="col-md-4">
+
+          <p>
+           <a class="lead" ng-click="getQuestion(post._id)"><strong>{{post.item_name}}</strong> </a>
+
+           <br> <br>
+           {{post.item_text}}
+           <br>
+           <br>
+           <br>
          </p>
 
          <div class="image">
           <a href=""><img class="item_image" ng-src="{{post.image}}"></a>
-
          </div>
 
-         </div>
+         <br><br><br>
 
-        <div class="col-xs-6 col-md-2">
+      </div>
+
+
+      <div class="col-md-4 custom_font">
+
          <p>
-         Price
-         <p class="lead" ng-click="getQuestion(user._id)"><strong>{{post.item_price}}$</strong></p>
+          Price
+          <p class="lead" ng-click="getQuestion(user._id)"><strong>{{post.item_price}}$</strong></p>
+           <br><br>
+          Version
+          <p class="lead" ng-click="getQuestion(user._id)"><strong>{{post.item_version}}</strong></p>
          </p>
 
-         </div>
-
-          <div class="col-xs-6 col-md-2">
-         <p>
-         Edition/Version
-         <p class="lead" ng-click="getQuestion(user._id)"><strong>{{post.item_version}}</strong></p>
-         </p>
-
-         </div>
-
+      </div>
 
     </div>
 
       <hr>
+
   </div>
 
 

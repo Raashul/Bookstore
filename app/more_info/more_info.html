@@ -1,0 +1,45 @@
+ <div class="container">
+
+ <center>
+
+ 	<h3>{{post.item_name}}</h3>
+ 	<h3>Seller: {{post.name}}</h3>
+ 	<h3>Price: {{post.item_price}}$</h3>
+ 	<h3>Version: {{post.item_version}}</h3>
+
+ </center>
+
+ <hr>
+
+
+<vr>
+ <div class="row">
+
+  <div class="col-md-6">
+
+  	<p >{{post.item_text}}</p>
+
+  </div>
+  <div class="col-md-6">
+  	 <div class="image">
+          <a href=""><img class="item_image" ng-src="{{post.image}}"></a>
+
+         </div>
+
+  </div>
+</div>
+
+<hr>
+
+
+ <center>
+
+ 	  <a class="btn btn-primary btn-lg" ng-click="sendEmailToSeller()">Contact Seller</button></a>
+
+ </center>
+
+
+
+
+</div>
+
