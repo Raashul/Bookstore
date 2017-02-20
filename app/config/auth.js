@@ -12,7 +12,14 @@ module.exports = {
 		'clientSecret': 'plGbr6RgFC6bVmtSnYGO-zCi',
 		'callbackURL': 'http://localhost:3000/auth/google/callback',
 
+	},
+
+	'emailAuth':{
+		'authEmail': 'dontreplybookstore@gmail.com',
+		'authPassword':'Noreply123'
 	}
+
+
 
 
 }

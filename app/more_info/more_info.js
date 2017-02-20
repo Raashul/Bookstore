@@ -19,7 +19,7 @@
 
             }).error(function(err){
                 console.log(err);
-                res.send(err);
+
             })
 
 
@@ -32,21 +32,27 @@
 
             // }
 
-            $scope.sendEmailToSeller = function(req, res){
+            $scope.sendEmailToSeller = function(){
+
+                console.log('here1');
 
 
-            $http.post('api/info/get', id).success(function(response){
+            $http.post('api/sendEmail', id).success(function(response){
+
+                console.log('back from server');
 
                 //response is the Post Information we received
                 var data = response;
 
                 var email = response.email;
 
-                console.log(data);
+              $location.path('/');
+
+
 
             }).error(function(err){
                 console.log(err);
-                res.send(err);
+
             })
 
 

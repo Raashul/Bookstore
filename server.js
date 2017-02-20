@@ -3,7 +3,6 @@ var mongoose 						= require('mongoose');
 var bodyParser					= require('body-parser');
 
 var nodemailer = require('nodemailer');
-var smtpTransport = require('nodemailer-smtp-transport');
 
 
 var passport 						= require('passport');
@@ -17,11 +16,17 @@ var multipart 					= require('connect-multiparty');
 var multipartMiddleware	= multipart();
 
 
+
+var passport_controller     = require('./server/controllers/passport');
+
+
+//Server Controller Files
+
+
 var get_post_controller 	= require('./server/controllers/get_item-controller');
 var post_item_controller 	= require('./server/controllers/post_item_controller');
 var get_post_info           = require('./server/controllers/get_item_info_controller');
 
-var passport_controller		= require('./server/controllers/passport');
 
 
 
@@ -86,8 +91,11 @@ app.get('/auth/google/callback',
 
 //All Post Requests.
 app.post('/api/post_item', post_item_controller.postItem);
+
 app.post('/api/info/get', get_post_info.getItemInfo);
 
+
+app.post('/api/sendEmail', get_post_info.sendEmail);
 
 
 

@@ -1,5 +1,6 @@
-var mongoose 	= require('mongoose');
-var Post		= require('../datasets/posts');
+var mongoose 	=   require('mongoose');
+var Post		  =   require('../datasets/posts');
+
 
 
 

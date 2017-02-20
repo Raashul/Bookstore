@@ -1,9 +1,9 @@
 var mongoose 	= require('mongoose');
 var Post		= require('../datasets/posts');
 var nodemailer = require('nodemailer');
-var smtpTransport = require('nodemailer-smtp-transport');
+var emailAuth =   require('../../app/config/auth.js');
 
-module.exports.getItemInfo = function(req, res){e
+module.exports.getItemInfo = function(req, res){
 	//req.body will contain the Post ID
 
 	//We will use this id to find the item in the database.
@@ -26,7 +26,9 @@ module.exports.getItemInfo = function(req, res){e
 
 
 
-module.exports.sendEmailToSeller = function(req, res){
+module.exports.sendEmail = function(req, res){
+
+	console.log('here');
 	//req.body will contain the Post ID
 
 	//We will use this id to find the item in the database.
@@ -34,24 +36,28 @@ module.exports.sendEmailToSeller = function(req, res){
 	var id = req.body;
 
 	Post.findById(id.id, function(err, post){
+
+		console.log(post);
+
+
 		if(err){
 			console.log(err);
 			res.send(err);
 		}else{
 
-				var transporter = nodemailer.createTransport({
+		var transporter = nodemailer.createTransport({
 		service: 'Gmail',
 		auth:{
-			user:'rashul1996@gmail.com',
-			pass: ''
+			user: emailAuth.emailAuth.authEmail,
+			pass: emailAuth.emailAuth.authPassword
 		}
 	});
 
 	var mailOptions ={
-		from: 'Sandesh <rashul1996@gmail.com>',
-		to: 'rashul1996@gmail.com',
-		subject: 'Website submission',
-		text: 'You have new submission.. Name '
+		from: '<noreply@gmail.com>',
+		to: 'test@gmail.com',
+		subject: 'Regarding sale of ' + post.item_name,
+		html: '<b>Thank you for using our application</b> <p>Please contact the seller using the given email Address</p>' + post.name + ":      " + post.email
 
 	};
 
@@ -63,6 +69,8 @@ module.exports.sendEmailToSeller = function(req, res){
 		else{
 			console.log('Message sent: ' + info.response);
 
+			res.json(mailOptions);
+
 		}
 
 		transporter.close();
@@ -70,6 +78,8 @@ module.exports.sendEmailToSeller = function(req, res){
 	});
 
 		}
+
+
 	})
 
 
