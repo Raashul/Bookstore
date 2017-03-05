@@ -4,6 +4,7 @@ var nodemailer = require('nodemailer');
 var emailAuth =   require('../../app/config/auth.js');
 
 module.exports.getItemInfo = function(req, res){
+
 	//req.body will contain the Post ID
 
 	//We will use this id to find the item in the database.
@@ -37,8 +38,6 @@ module.exports.sendEmail = function(req, res){
 
 	Post.findById(id.id, function(err, post){
 
-		console.log(post);
-
 
 		if(err){
 			console.log(err);
@@ -55,16 +54,16 @@ module.exports.sendEmail = function(req, res){
 
 	var mailOptions ={
 		from: '<noreply@gmail.com>',
-		to: 'test@gmail.com',
+		to: 'rashul1996@gmail.com',
 		subject: 'Regarding sale of ' + post.item_name,
-		html: '<b>Thank you for using our application</b> <p>Please contact the seller using the given email Address</p>' + post.name + ":      " + post.email
+		html: '<b>Thank you for using our application</b> <p>Please contact the seller using the given email Address</p>' + post.name + ':         ' + post.email
 
 	};
 
 	transporter.sendMail(mailOptions, function(error, info){
 		if(error){
 			console.log(error);
-			res.redirect('/');
+
 		}
 		else{
 			console.log('Message sent: ' + info.response);

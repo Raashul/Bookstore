@@ -32,6 +32,13 @@
 
       })
 
+        .state('profile_info', {
+            url: '/user?name/?email',
+            templateUrl: 'app/success_login/success_login.html',
+            controller:'SuccessLoginController'
+
+      })
+
         .state('/login',{
             url: '/login',
             templateUrl:"app/login/login.html",

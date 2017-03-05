@@ -8,144 +8,76 @@ var User       = require('../datasets/users.js');
 // load the auth variables
 var configAuth = require('../../app/config/auth.js');
 
-module.exports = function(passport, req, res) {
+module.exports = function(passport) {
 
 
 
-    // used to serialize the user for the session
-    passport.serializeUser(function(user, done) {
-        done(null, user.id);
-    });
+	// used to serialize the user for the session
+	passport.serializeUser(function(user, done) {
+		done(null, user.id);
+	});
 
-    // used to deserialize the user
-    passport.deserializeUser(function(id, done) {
-        User.findById(id, function(err, user) {
-            done(err, user);
-        });
-    });
-
-
-    passport.use(new FacebookStrategy({
-        clientID: configAuth.facebookAuth.clientID,
-        clientSecret: configAuth.facebookAuth.clientSecret,
-        callbackURL: configAuth.facebookAuth.callbackURL,
-        profileFields: ['id', 'emails', 'name']
-      },
-
-      function(accessToken, refreshToken, profile, done) {
-        process.nextTick(function(){
-
-            console.log('testing');
-
-            User.findOne({'facebook.id': profile.id}, function(err, user){
-                if(err){
-                     return done(err);
-                }if(user){
-
-                    var user = {
-                        "id":     user._id,
-                        "name":   user.facebook.name,
-                    }
-
-                    // console.log('user is');
-                    // console.log(user);
-                    // res.json(user);
-
-                    return done(null, user);
-                }else{
-
-                    var newUser = new User();
-
-                    newUser.facebook.id = profile.id;
-                    newUser.facebook.token = accessToken;
-                    newUser.facebook.name  = profile.name.givenName + ' ' + profile.name.familyName;
+	// used to deserialize the user
+	passport.deserializeUser(function(id, done) {
+		User.findById(id, function(err, user) {
+			done(err, user);
+		});
+	});
 
 
+	//Google Strategy
 
-                    newUser.save(function(err){
-                        if(err){
+	  passport.use(new GoogleStrategy({
+			clientID: configAuth.googleAuth.clientID,
+			clientSecret: configAuth.googleAuth.clientSecret,
+			callbackURL: configAuth.googleAuth.callbackURL,
+			profileFields: ['id', 'emails', 'name']
+	  },
 
+	  function(accessToken, refreshToken, profile, done) {
+		process.nextTick(function(){
 
-                    var user = {
-                        "id":     user._id,
-                        "name":   user.facebook.name,
-                    }
-
-                            // console.log('user is');
-                            // console.log(user);
-                            // res.json(user);
-
-                            throw err;
-
-                        }else{
-
-                            return done(null, newUser);
-                        }
-                    })
-                }
-            })
-        })
+			User.findOne({'google.id': profile.id}, function(err, user){
 
 
+				// console.log('json should be ');
+				// console.log(test);
 
-      }
-    ));
+				if(err){
+					 return done(err);
+				}
 
+				if(user){
 
+					return done(null, user);
+				}
 
-    //Google Strategy
-
-      passport.use(new GoogleStrategy({
-        clientID: configAuth.googleAuth.clientID,
-        clientSecret: configAuth.googleAuth.clientSecret,
-        callbackURL: configAuth.googleAuth.callbackURL,
-        profileFields: ['id', 'emails', 'name']
-      },
-
-      function(accessToken, refreshToken, profile, done) {
-        process.nextTick(function(){
-
-            User.findOne({'google.id': profile.id}, function(err, user){
-
-                console.log('returning user');
-                console.log(user);
+				else{
+					console.log('creating user');
 
 
-                // console.log('json should be ');
-                // console.log(test);
+					var newUser = new User();
 
-                if(err){
-                     return done(err);
-                }if(user){
+					newUser.google.id       = profile.id;
+					newUser.google.token    = accessToken;
+					newUser.google.name     = profile.displayName;
+					newUser.google.email    = profile.emails[0].value;
 
 
-                    console.log('user found');
-                    return done(null, user);
-                }else{
+					newUser.save(function(err){
+						if(err){
+							throw err;
 
-                    var newUser = new User();
+						}else{
+							return done(null, newUser);
+						}
+					})
+				}
+			})
+		})
 
-                    newUser.google.id       = profile.id;
-                    newUser.google.token    = accessToken;
-                    newUser.google.name     = profile.displayName;
-                    newUser.google.email    = profile.emails[0].value;
-
-                    console.log(newUser);
-
-                    newUser.save(function(err){
-                        if(err){
-                            throw err;
-
-                        }else{
-                            return done(null, newUser);
-                        }
-                    })
-                }
-            })
-        })
-
-      }
-    ));
+	  }
+	));
 
 
 

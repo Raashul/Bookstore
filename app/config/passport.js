@@ -32,41 +32,42 @@ module.exports = function(passport) {
         profileFields: ['id', 'emails', 'name']
       },
 
-      function(accessToken, refreshToken, profile, done) {
-        process.nextTick(function(){
+    //   function(accessToken, refreshToken, profile, done) {
 
-            console.log('testing');
-            console.log(req.user);
+    //     process.nextTick(function(){
 
-            User.findOne({'facebook.id': profile.id}, function(err, user){
-                if(err){
-                     return done(err);
-                }if(user){
+    //         console.log('testing');
+    //         console.log(req.user);
 
-                    console.log('user found');
-                    return done(null, user);
-                }else{
+    //         User.findOne({'facebook.id': profile.id}, function(err, user){
+    //             if(err){
+    //                  return done(err);
+    //             }if(user){
 
-                    var newUser = new User();
+    //                 console.log('user found');
+    //                 return done(null, user);
+    //             }else{
 
-                    newUser.facebook.id = profile.id;
-                    newUser.facebook.token = accessToken;
-                    newUser.facebook.name  = profile.name.givenName + ' ' + profile.name.familyName;
+    //                 var newUser = new User();
 
-                    newUser.save(function(err){
-                        if(err){
-                            throw err;
+    //                 newUser.facebook.id = profile.id;
+    //                 newUser.facebook.token = accessToken;
+    //                 newUser.facebook.name  = profile.name.givenName + ' ' + profile.name.familyName;
 
-                        }else{
-                            return done(null, newUser);
-                        }
-                    })
-                }
-            })
-        })
+    //                 newUser.save(function(err){
+    //                     if(err){
+    //                         throw err;
 
-      }
-    ));
+    //                     }else{
+    //                         return done(null, newUser);
+    //                     }
+    //                 })
+    //             }
+    //         })
+    //     })
+
+    //   }
+    // ));
 
 
 

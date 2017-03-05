@@ -1,10 +1,7 @@
 var express 						= require('express');
 var mongoose 						= require('mongoose');
 var bodyParser					= require('body-parser');
-
-var nodemailer = require('nodemailer');
-
-
+var nodemailer          = require('nodemailer');
 var passport 						= require('passport');
 
 //require('./app/config/passport.js')(passport);
@@ -37,6 +34,11 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 
+app.set('views', __dirname);
+app.engine('html', require('ejs').renderFile);
+app.set('view engine', 'html');
+
+
 //This mongoose connecttion is for localhost
 mongoose.connect('mongodb://localhost/book_rental');
 
@@ -52,8 +54,12 @@ app.use('/server', express.static(__dirname + '/server'));
 app.use('/uploads', express.static(__dirname+"/uploads"));
 
 
+
+
 app.get('/', function(req, res){
+
 	res.sendfile('./index.html');
+
 })
 
 
@@ -63,39 +69,68 @@ app.get('/api/home/getPosts', get_post_controller.getItem);
 // app.get('/auth/facebook',
 //   passport.authenticate('facebook'));
 
-app.get('/auth/facebook',
-	passport.authenticate('facebook'));
+// app.get('/auth/facebook',
+// 	passport.authenticate('facebook'));
 
-app.get('/auth/facebook/callback',
-        passport.authenticate('facebook', {
-            successRedirect : '/',
-            failureRedirect : '/login'
-        }));
+// app.get('/auth/facebook/callback',
+// 		passport.authenticate('facebook', {
+// 			successRedirect : '/',
+// 			failureRedirect : '/login'
+// 		}));
 
 
-app.get('/auth/google',
-  passport.authenticate('google', { scope:['profile', 'email']}));
 
-app.get('/auth/google/callback',
-        passport.authenticate('google', {
-            successRedirect : '/',
-            failureRedirect : '/login'
-        }));
 
-// app.get('/api/test', function(req, res){
-//     console.log('check');
-//     res.send('testing');
-// })
+//GOOGLE AUTHENTICATION
+app.get('/auth/google', passport.authenticate('google', { scope:['profile', 'email']}));
+
+app.get('/auth/google/callback', passport.authenticate('google', {
+	failureRedirect : '/login' }),
+
+	function(req, res){
+
+		var request = {
+			email: req.user.google.email,
+			name: req.user.google.name
+		}
+
+		console.log('test');
+		//res.redirect('/post?id=58b1c638fe446305c8cc6b0d')
+		//res.redirect('/#/user?name=sadasd&email=asdasd@asd.com');
+
+		res.redirect("/#/user?name=" + request.name + "&email=" +request.email)
+
+
+
+		// console.log(JSON.stringify(request));
+
+		// return res.json(JSON.stringify(request));
+
+
+	//res.redirect('/');
+		//return done(JSON.stringify(request));
+	});
+
+
+function isLoggedIn(req, res, next) {
+
+	console.log('checking if logged in');
+
+  // if user is authenticated in the session, carry on
+  if (req.isAuthenticated())
+      return next();
+    res.redirect('#/login')
+}
 
 
 
 //All Post Requests.
-app.post('/api/post_item', post_item_controller.postItem);
+app.post('/api/post_item',isLoggedIn, post_item_controller.postItem);
 
-app.post('/api/info/get', get_post_info.getItemInfo);
+app.post('/api/info/get',  get_post_info.getItemInfo);
 
 
-app.post('/api/sendEmail', get_post_info.sendEmail);
+app.post('/api/sendEmail',isLoggedIn,  get_post_info.sendEmail);
 
 
 
