@@ -22,7 +22,7 @@ var passport_controller     = require('./server/controllers/passport');
 
 var get_post_controller 	= require('./server/controllers/get_item-controller');
 var post_item_controller 	= require('./server/controllers/post_item_controller');
-var get_post_info           = require('./server/controllers/get_item_info_controller');
+var get_item_info_controller           = require('./server/controllers/get_item_info_controller');
 
 
 
@@ -127,10 +127,10 @@ function isLoggedIn(req, res, next) {
 //All Post Requests.
 app.post('/api/post_item',isLoggedIn, post_item_controller.postItem);
 
-app.post('/api/info/get',  get_post_info.getItemInfo);
+app.post('/api/info/get',  get_item_info_controller.getItemInfo);
 
 
-app.post('/api/sendEmail',isLoggedIn,  get_post_info.sendEmail);
+app.post('/api/sendEmail',  get_item_info_controller.sendEmail);
 
 
 

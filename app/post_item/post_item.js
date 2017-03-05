@@ -3,9 +3,6 @@
     .controller('PostItemController',['Upload', '$scope', '$http', '$state', function(Upload, $scope, $http, $state){
 
 
-
-
-
       $scope.postItem = function(req, res){
 
           $scope.$watch(function(){

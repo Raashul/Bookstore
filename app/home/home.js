@@ -2,6 +2,16 @@
 	angular.module('Rashul')
 		.controller('HomeController',[ '$scope', '$http', '$state', '$interval', "$location" , function($scope, $http, $state, $interval, $location){
 
+			if(localStorage.getItem('user_name')!= null){
+
+				var name = localStorage.getItem('user_name');
+				$scope.user_email = localStorage.getItem('user_email');
+				name = name.substr(0,name.indexOf(' ') + " ".length);
+
+				$scope.display_text = "Hi " + name
+
+			}
+
 
 		  //GET each question upon click.
 			$scope.getQuestion = function(id){
