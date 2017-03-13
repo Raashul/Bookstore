@@ -2,6 +2,12 @@
 	angular.module('Rashul')
 		.controller('MoreInfoController',[ '$scope', '$http', '$state', '$interval', "$location" , function($scope, $http, $state, $interval, $location){
 
+				if(localStorage.getItem('user_name')== null || localStorage.getItem('user_name')== undefined){
+				$scope.no_user_logged_in = true;
+			}
+
+
+
 			 var request = {
 				id : $location.search().id,
 				send_to: localStorage.getItem('user_email')
@@ -34,7 +40,7 @@
 					var data = response;
 					var email = response.email;
 
-
+					$scope.email_sent_alert = true;
 
 
 				}).error(function(err){

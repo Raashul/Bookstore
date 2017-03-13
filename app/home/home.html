@@ -1,7 +1,7 @@
  <div class="container">
 
   <center>
-   <h3> {{display_text}} <h3>
+   <h3 class="name_header"> {{display_text}} <h3>
 
   </center>
 
@@ -11,16 +11,14 @@
          <a ng-click="setNewPost()" >There are {{difference}} new posts</a>
   </div>
 
-
-
   <div ng-repeat='post in posts'>
     <div class="row">
       <div class="col-md-4">
          <p>
-          <strong class="lead">{{post.name}}</strong>
+          <strong class="item_seller">{{post.name}}</strong>
           </p>
           <br>
-          <p>{{post.date | date : 'MM/dd/yy'}}</p>
+          <p class="item_seller">{{post.date | date : 'MM/dd/yy'}}</p>
 
       </div>
 
@@ -28,13 +26,11 @@
       <div class="col-md-4">
 
           <p>
-           <a class="lead" ng-click="getQuestion(post._id)"><strong>{{post.item_name}}</strong> </a>
-
+           <a class="lead item_name" ng-click="getQuestion(post._id)"><strong>{{post.item_name}}</strong> </a>
            <br> <br>
-           {{post.item_text}}
-           <br>
-           <br>
-           <br>
+           <span class="item_description">{{post.item_text}} </p>
+           <br> <br> <br>
+
          </p>
 
          <div class="image">

@@ -2,16 +2,16 @@
 
  <center>
 
- 	<h3>{{post.item_name}}</h3>
+ 	<h3>Book : {{post.item_name}}</h3>
  	<h3>Seller: {{post.name}}</h3>
  	<h3>Price: {{post.item_price}}$</h3>
- 	<h3>Version: {{post.item_version}}</h3>
+ 	<h3>Version/Edition: {{post.item_version}}</h3>
 
  </center>
 
  <hr>
 
-
+<br>
 <vr>
  <div class="row">
 
@@ -31,11 +31,16 @@
 
 <hr>
 
+<br> <br> <br>
 
  <center>
-
- 	  <a class="btn btn-primary btn-lg" ng-click="sendEmailToSeller()">Contact Seller</button></a>
-
+ 	<div class="alert alert-info" ng-show="no_user_logged_in">
+		<strong>You have login in before you can contact the seller</strong>
+	</div>
+  <div class="alert alert-success" ng-show="email_sent_alert">
+  <strong>You have been sent an email with seller's contact information </strong>
+  </div>
+	<a class="btn btn-primary btn-lg" ng-disabled = "no_user_logged_in" ng-click="sendEmailToSeller()">Contact Seller</button></a>
  </center>
 
 

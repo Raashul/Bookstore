@@ -58,7 +58,6 @@ module.exports.sendEmail = function(req, res){
 		to: send_to,
 		subject: 'Regarding sale of ' + post.item_name,
 		html: '<b>Thank you for using our application</b> <p>Please contact the seller using the given email Address</p>' + post.name + ':         ' + post.email
-
 	};
 
 	transporter.sendMail(mailOptions, function(error, info){
@@ -67,20 +66,14 @@ module.exports.sendEmail = function(req, res){
 		}
 		else{
 			console.log('Message sent: ' + info.response);
-
 			res.json(mailOptions);
-
 		}
-
 		transporter.close();
 
 	});
 
 		}
-
-
 	})
-
 
 }
 

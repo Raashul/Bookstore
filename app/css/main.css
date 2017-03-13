@@ -82,4 +82,21 @@ body{
   font-family: "Droid Sans"
 }
 
+.name_header{
+  font-family: "Amethysta", serif;
+  font-size: 2em;
+}
+
+.item_seller{
+  font-size: 1.7em;
+  font-size: 1.7em;
+}
+
+.item_name{
+  font-size: 1.5em;
+}
+
+.item_description{
+  font-size: 1.1em;
+}
 

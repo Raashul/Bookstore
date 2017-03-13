@@ -94,7 +94,6 @@ app.get('/auth/google/callback', passport.authenticate('google', {
 			name: req.user.google.name
 		}
 
-		console.log('test');
 		//res.redirect('/post?id=58b1c638fe446305c8cc6b0d')
 		//res.redirect('/#/user?name=sadasd&email=asdasd@asd.com');
 
@@ -103,9 +102,7 @@ app.get('/auth/google/callback', passport.authenticate('google', {
 
 
 		// console.log(JSON.stringify(request));
-
 		// return res.json(JSON.stringify(request));
-
 
 	//res.redirect('/');
 		//return done(JSON.stringify(request));
@@ -119,17 +116,14 @@ function isLoggedIn(req, res, next) {
   // if user is authenticated in the session, carry on
   if (req.isAuthenticated())
       return next();
-    res.redirect('#/login')
-}
+  res.redirect('#/login')
+	}
 
 
 
 //All Post Requests.
-app.post('/api/post_item',isLoggedIn, post_item_controller.postItem);
-
+app.post('/api/post_item', post_item_controller.postItem);
 app.post('/api/info/get',  get_item_info_controller.getItemInfo);
-
-
 app.post('/api/sendEmail',  get_item_info_controller.sendEmail);
 
 

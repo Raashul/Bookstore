@@ -1,9 +1,16 @@
 <div class="container width">
 
 
+	<center ng-show="no_user_logged_in">
+		<div class="alert alert-danger">
+		  <strong>You have login in before you can post anything </strong>
+		</div>
+
+	</center>
+
 
 	<div class="form-group row">
-	  <label for="name-input" class="col-2 col-form-label">Name</label>
+	  <label for="name-input" class="col-2 col-form-label">Display Name</label>
 	  <div class="col-10">
 	    <input class="form-control" type="text" value="Fixed value" id="name-input" ng-model ="name" >
 	  </div>

@@ -2,7 +2,7 @@
 	angular.module('Rashul', ['ui.router', 'ngFileUpload'])
 		.config(function($stateProvider, $urlRouterProvider){
 
-        $urlRouterProvider.otherwise('/');
+		$urlRouterProvider.otherwise('/');
 
 			$stateProvider
 				.state('signUp',{
@@ -13,44 +13,44 @@
 				})
 
 
-        .state('main',{
-            url: '/',
-            templateUrl: 'app/home/home.html',
-            controller: 'HomeController'
-        })
+		.state('main',{
+			url: '/',
+			templateUrl: 'app/home/home.html',
+			controller: 'HomeController'
+		})
 
-        .state('post_item',{
-            url:'/post-item',
-            templateUrl: 'app/post_item/post_item.html',
-            controller: "PostItemController"
-        })
+		.state('post_item',{
+			url:'/post-item',
+			templateUrl: 'app/post_item/post_item.html',
+			controller: "PostItemController"
+		})
 
-        .state('more_info', {
-            url: '/post?id',
-            templateUrl: 'app/more_info/more_info.html',
-            controller:'MoreInfoController'
+		.state('more_info', {
+			url: '/post?id',
+			templateUrl: 'app/more_info/more_info.html',
+			controller:'MoreInfoController'
 
-      })
+	  })
 
-        .state('profile_info', {
-            url: '/user?name/?email',
-            templateUrl: 'app/success_login/success_login.html',
-            controller:'SuccessLoginController'
+		.state('profile_info', {
+			url: '/user?name/?email',
+			templateUrl: 'app/success_login/success_login.html',
+			controller:'SuccessLoginController'
 
-      })
-
-        .state('/login',{
-            url: '/login',
-            templateUrl:"app/login/login.html",
-            controller: "LoginController"
-        });
+	  })
 
 
+		.state('logout',{
+			url: '/logout',
+			templateUrl: "app/logout/logout.html",
+			controller: "LogoutController"
+		})
 
-
-
-
-
+		.state('/login',{
+			url: '/login',
+			templateUrl:"app/login/login.html",
+			controller: "LoginController"
+		});
 
 		})
 }());
