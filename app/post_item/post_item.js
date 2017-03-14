@@ -1,6 +1,6 @@
 (function(){
 	angular.module('Rashul')
-		.controller('PostItemController',['Upload', '$scope', '$http', '$state', function(Upload, $scope, $http, $state){
+		.controller('PostItemController',['Upload', '$scope', '$http', '$state', '$location', function(Upload, $scope, $http, $state, $location){
 
 			if(localStorage.getItem('user_name')== null || localStorage.getItem('user_name')== undefined){
 				$scope.no_user_logged_in = true
@@ -38,7 +38,7 @@
 			}).success(function(data){
 
 			}).error(function(err){
-				console.log(err);
+				$location.path('/login');
 			})
 		}
 
