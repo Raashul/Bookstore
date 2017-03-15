@@ -17,6 +17,22 @@ var multipartMiddleware			= multipart();
 var passport_controller     = require('./server/controllers/passport');
 
 
+
+
+//Server Controller Files
+
+var get_post_controller 								= require('./server/controllers/get_item-controller');
+var post_item_controller 								= require('./server/controllers/post_item_controller');
+var get_item_info_controller           	= require('./server/controllers/get_item_info_controller');
+
+
+
+
+var app 									= express();
+
+
+
+
 //This mongoose connecttion is for localhost
 //mongoose.connect('mongodb://localhost/book_rental');
 
@@ -31,19 +47,6 @@ mongoose.connect(process.env.MONGODB_URI, function(err){
 	}
 })
 
-
-
-
-//Server Controller Files
-
-var get_post_controller 								= require('./server/controllers/get_item-controller');
-var post_item_controller 								= require('./server/controllers/post_item_controller');
-var get_item_info_controller           	= require('./server/controllers/get_item_info_controller');
-
-
-
-
-var app 									= express();
 
 
 app.use(passport.initialize());
