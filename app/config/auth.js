@@ -10,7 +10,9 @@ module.exports = {
 	'googleAuth' : {
 		'clientID' : '822850464440-hincavemu12f2hg2jemr28s6pft0br12.apps.googleusercontent.com',
 		'clientSecret': 'plGbr6RgFC6bVmtSnYGO-zCi',
-		'callbackURL': 'http://localhost:3000/auth/google/callback',
+		//'callbackURL': 'http://localhost:3000/auth/google/callback'
+		'callbackURL': 'https://pacific-basin-33157.herokuapp.com/auth/google/callback'
+
 
 	},
 
