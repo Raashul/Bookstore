@@ -24,7 +24,10 @@ module.exports.postItem = function(req, res){
 	//Create a unique target path to avoid collision
 	var targetPath = path.join(__dirname, "../../uploads/" + post._id + uploadDate + file.name);
 
-	fs.rename(tempPath, targetPath, function(err, data){
+	console.log(targetPath);
+	console.log(tempPath);
+
+	fs.move(tempPath, targetPath, function(err, data){
 		if(err){
 			res.send('There was an error uploading the file. Try Again Later');
 			console.log("Error while uploading photo");
