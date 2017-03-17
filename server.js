@@ -129,7 +129,7 @@ app.get('/auth/google/callback', passport.authenticate('google', {
 
 
 //All Post Requests.
-app.post('/api/post_item', isLoggedIn,  post_item_controller.postItem);
+app.post('/api/post_item',  post_item_controller.postItem);
 app.post('/api/info/get',  get_item_info_controller.getItemInfo);
 app.post('/api/sendEmail',  isLoggedIn, get_item_info_controller.sendEmail);
 
