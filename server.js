@@ -115,7 +115,7 @@ app.get('/auth/google/callback', passport.authenticate('google', {
 		//res.redirect('/post?id=58b1c638fe446305c8cc6b0d')
 		//res.redirect('/#/user?name=sadasd&email=asdasd@asd.com');
 
-		res.redirect("/#/user?name=" + request.name + "&email=" +request.email)
+	res.redirect("/#/user?name=" + request.name + "&email=" +request.email)
 
 
 
@@ -129,7 +129,7 @@ app.get('/auth/google/callback', passport.authenticate('google', {
 
 
 //All Post Requests.
-app.post('/api/post_item', isLoggedIn,  post_item_controller.postItem);
+app.post('/api/post_item',  post_item_controller.postItem);
 app.post('/api/info/get',  get_item_info_controller.getItemInfo);
 app.post('/api/sendEmail',  isLoggedIn, get_item_info_controller.sendEmail);
 

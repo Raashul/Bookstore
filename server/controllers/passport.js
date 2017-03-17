@@ -27,57 +27,57 @@ module.exports = function(passport) {
 
 	//Google Strategy
 
-	  passport.use(new GoogleStrategy({
-			clientID: configAuth.googleAuth.clientID,
-			clientSecret: configAuth.googleAuth.clientSecret,
-			callbackURL: configAuth.googleAuth.callbackURL,
-			profileFields: ['id', 'emails', 'name']
-	  },
+  passport.use(new GoogleStrategy({
+		clientID: configAuth.googleAuth.clientID,
+		clientSecret: configAuth.googleAuth.clientSecret,
+		callbackURL: configAuth.googleAuth.callbackURL,
+		profileFields: ['id', 'emails', 'name']
+  },
 
-	  function(accessToken, refreshToken, profile, done) {
-		process.nextTick(function(){
+  function(accessToken, refreshToken, profile, done) {
+	process.nextTick(function(){
 
-			User.findOne({'google.id': profile.id}, function(err, user){
-
-
-				// console.log('json should be ');
-				// console.log(test);
-
-				if(err){
-					 return done(err);
-				}
-
-				if(user){
-
-					return done(null, user);
-				}
-
-				else{
-					console.log('creating user');
+		User.findOne({'google.id': profile.id}, function(err, user){
 
 
-					var newUser = new User();
+			// console.log('json should be ');
+			// console.log(test);
 
-					newUser.google.id       = profile.id;
-					newUser.google.token    = accessToken;
-					newUser.google.name     = profile.displayName;
-					newUser.google.email    = profile.emails[0].value;
+			if(err){
+				 return done(err);
+			}
+
+			if(user){
+
+				return done(null, user);
+			}
+
+			else{
+				console.log('creating user');
 
 
-					newUser.save(function(err){
-						if(err){
-							throw err;
+				var newUser = new User();
 
-						}else{
-							return done(null, newUser);
-						}
-					})
-				}
-			})
+				newUser.google.id       = profile.id;
+				newUser.google.token    = accessToken;
+				newUser.google.name     = profile.displayName;
+				newUser.google.email    = profile.emails[0].value;
+
+
+				newUser.save(function(err){
+					if(err){
+						throw err;
+
+					}else{
+						return done(null, newUser);
+					}
+				})
+			}
 		})
+	})
 
-	  }
-	));
+  }
+));
 
 
 
