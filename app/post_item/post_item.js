@@ -42,8 +42,10 @@
 
 			}).progress(function(evt){
 				console.log('firing');
+				$location.path('/');
 			}).success(function(data){
-
+				console.log('submitted');
+				$location.path('/');
 			}).error(function(err){
 				$location.path('/login');
 			})
