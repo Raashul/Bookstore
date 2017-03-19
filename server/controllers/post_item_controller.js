@@ -27,7 +27,7 @@ module.exports.postItem = function(req, res){
 	console.log(targetPath);
 	console.log(tempPath);
 
-	fs.rename(tempPath, targetPath, function(err, data){
+	fs.move(tempPath, targetPath, function(err, data){
 		if(err){
 			res.send('There was an error uploading the file. Try Again Later');
 			console.log("Error while uploading photo");
@@ -36,6 +36,8 @@ module.exports.postItem = function(req, res){
 		else{
 
 			post.image = savePath;
+
+
 			post.save(function(err){
 
 				//console.log(err);
