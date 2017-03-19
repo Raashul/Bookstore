@@ -25,6 +25,10 @@ body{
   margin-top: 10px;
 }
 
+.post_item_form label{
+  font-size: 1.3em;
+}
+
 
 .image{
   height: 200px;
@@ -105,12 +109,12 @@ body{
 
 .item_seller{
   font-size: 1.2em;
-
   color: #65B995;
 }
 
 .item_name{
   font-size: 1.5em;
+  color: black;
 }
 
 .item_description{

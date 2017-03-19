@@ -1,3 +1,4 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <div class="container width">
 
 
@@ -9,21 +10,21 @@
 	</center>
 
 
-	<div class="form-group row">
+	<div class="form-group row post_item_form">
 	  <label for="name-input" class="col-2 col-form-label">Display Name</label>
 	  <div class="col-10">
 	    <input class="form-control" type="text" value="Fixed value" id="name-input" ng-model ="name" >
 	  </div>
 	</div>
 
-	<div class="form-group row">
+	<div class="form-group row post_item_form">
 	  <label for="email-input" class="col-2 col-form-label">Email</label>
 	  <div class="col-10">
 	    <input class="form-control" type="email"  id="email-input" ng-model ="email" value="fixedemail@gmail.com" >
 	  </div>
 	</div>
 
-	<div class="form-group row">
+	<div class="form-group row post_item_form">
 	  <label for="item-name-input" class="col-2 col-form-label">Item Name</label>
 	  <div class="col-10">
 	    <input class="form-control" type="text" value="" id="item-name-input" ng-model ="item" >
@@ -31,14 +32,14 @@
 	</div>
 
 
-	<div class="form-group row">
+	<div class="form-group row post_item_form">
 	  <label for="text-input" class="col-2 col-form-label">About the Item</label>
 	  <div class="col-10">
 	    <textarea class="form-control" id="text-input" rows="4"  ng-model ="text"></textarea>
 	  </div>
 	</div>
 
-	<div class="form-group row">
+	<div class="form-group row post_item_form">
 	  <label for="photo-input" class="col-2 col-form-label">Photo (Required)</label>
 	  <div class="col-10">
 	    <input type="file" class="form-control-file" id="photo-input" aria-describedby="fileHelp" ngf-select ng-model="file" name="file" ngf-pattern="'image/*'" required >
@@ -47,14 +48,14 @@
 
 
 
-	<div class="form-group row">
+	<div class="form-group row post_item_form">
 	  <label for="price-input" class="col-2 col-form-label">Price ($)</label>
 	  <div class="col-10">
 	    <input class="form-control" type="number" value="" id="price-input" ng-model ="price" >
 	  </div>
 	</div>
 
-	<div class="form-group row">
+	<div class="form-group row post_item_form">
 	  <label for="version-input" class="col-2 col-form-label">Edition/Version</label>
 	  <div class="col-10">
 	    <input class="form-control" type="String" value="" id="version-input" ng-model ="edition">
