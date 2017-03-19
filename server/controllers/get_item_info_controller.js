@@ -29,6 +29,8 @@ module.exports.getItemInfo = function(req, res){
 
 module.exports.sendEmail = function(req, res){
 
+	console.log('trying to send email');
+
 
 	//req.body will contain the Post ID
 	//We will use this id to find the item in the database.
@@ -61,6 +63,8 @@ module.exports.sendEmail = function(req, res){
 	};
 
 	transporter.sendMail(mailOptions, function(error, info){
+
+		console.log('email object created');
 		if(error){
 			console.log(error);
 		}

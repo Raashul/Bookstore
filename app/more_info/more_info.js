@@ -36,6 +36,8 @@
 
 				$http.post('api/sendEmail', request).success(function(response){
 
+					console.log(response);
+
 					//response is the Post Information we received
 					var data = response;
 					var email = response.email;
@@ -44,7 +46,9 @@
 
 
 				}).error(function(err){
+
 					console.log(err);
+					$location.path('/');
 				})
 			}
 

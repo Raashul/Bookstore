@@ -7,15 +7,29 @@ body{
     font-family: "Inconsolata", serif;
 }
 
+#nav-height li{
+  font-size: 1.2em;
+}
+
 #questions{
     height: 60px;
     widows: 75%;
 }
 
+.posts{
+  border-style: ridge;
+  padding: 10px 10px 10px 10px;
+}
+
+.row{
+  margin-top: 10px;
+}
+
 
 .image{
-  height: 250px;
-  width: 250px;
+  height: 200px;
+  width: 200px;
+  float: right;
 }
 
 .image img{
@@ -73,12 +87,14 @@ body{
  }
 
 
+
+
 .width{
   width: 60%;
 }
 
 .custom_font{
-  font-size: 1.4em;
+  font-size: 1.1em;
   font-family: "Droid Sans"
 }
 
@@ -88,8 +104,9 @@ body{
 }
 
 .item_seller{
-  font-size: 1.7em;
-  font-size: 1.7em;
+  font-size: 1.2em;
+
+  color: #65B995;
 }
 
 .item_name{
@@ -97,6 +114,7 @@ body{
 }
 
 .item_description{
-  font-size: 1.1em;
+  font-size: 1.2em;
+  color: #949494;
 }
 

@@ -7,12 +7,58 @@
 
   <br> <br>
 
-   <div class="alert alert-success" ng-if="incommingPost.length > 0">
-         <a ng-click="setNewPost()" >There are {{difference}} new posts</a>
+  <div class="alert alert-success" ng-if="incommingPost.length > 0">
+    <a ng-click="setNewPost()" >There are {{difference}} new posts</a>
   </div>
 
+
   <div ng-repeat='post in posts'>
+
     <div class="row">
+
+      <div class="col-md-8 col-md-offset-2 posts">
+
+          <p class="item_seller">{{post.name}} in {{post.date | date : 'MM/dd/yy'}}
+
+
+      <div class="image">
+        <a href=""><img class="item_image" ng-src="{{post.image}}"></a>
+      </div>
+
+      <p>
+      <a class="lead item_name" ng-click="getQuestion(post._id)"><strong>{{post.item_name}}</strong> </a>
+      <br> <br>
+      <span class="item_description">{{post.item_text}} </span>
+      </p>
+      <br>
+
+      <div class="col-md-4 custom_font">
+        <p>
+        Price
+        <p class="lead" ng-click="getQuestion(user._id)"><strong>{{post.item_price}}$</strong></p>
+        Version
+        <p class="lead" ng-click="getQuestion(user._id)"><strong>{{post.item_version}}</strong></p>
+        </p>
+
+        <a ng-click="getQuestion(post._id)">View More Details</a>
+
+      </div>
+
+
+      </div>
+
+
+
+
+
+
+
+      </div>
+
+
+
+      <!-- Original Design -->
+<!--
       <div class="col-md-2">
          <p>
           <strong class="item_seller">{{post.name}}</strong>
@@ -55,8 +101,10 @@
       </div>
 
     </div>
-
+ -->
       <hr>
+
+
 
   </div>
 
