@@ -37,7 +37,7 @@ var app 									= express();
 //mongoose.connect('mongodb://localhost/book_rental');
 
 //this mongoose connection is for heroku
-mongoose.createConnection("mongodb://Rashul:Rashul12@ds135680.mlab.com:35680/bookstore");
+mongoose.createConnection("mongodb://Rashul:Password12@ds135690.mlab.com:35690/bookstore");
 
 mongoose.connect(process.env.MONGODB_URI, function(err){
 	if(err){
