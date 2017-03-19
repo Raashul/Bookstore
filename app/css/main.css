@@ -8,7 +8,7 @@ body{
 }
 
 #nav-height li{
-  font-size: 1.2em;
+  font-size: 1.1em;
 }
 
 #questions{
@@ -26,7 +26,7 @@ body{
 }
 
 .post_item_form label{
-  font-size: 1.3em;
+  font-size: 1.1em;
 }
 
 
@@ -67,15 +67,9 @@ body{
 	margin-top: 50px;
 }
 
-#footer {
-  	position: relative;
-    bottom: 0;
-    width: 100%;
-    font-size: 1em;
-    margin-top: 40px;
-}
 
-#footer p{
+footer{
+  margin-top: 40px;
     text-align: center;
 }
 

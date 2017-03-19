@@ -13,14 +13,14 @@
 	<div class="form-group row post_item_form">
 	  <label for="name-input" class="col-2 col-form-label">Display Name</label>
 	  <div class="col-10">
-	    <input class="form-control" type="text" value="Fixed value" id="name-input" ng-model ="name" >
+	    <input class="form-control" type="text"  id="name-input" ng-model ="name" readonly>
 	  </div>
 	</div>
 
 	<div class="form-group row post_item_form">
 	  <label for="email-input" class="col-2 col-form-label">Email</label>
 	  <div class="col-10">
-	    <input class="form-control" type="email"  id="email-input" ng-model ="email" value="fixedemail@gmail.com" >
+	    <input class="form-control" type="email"  id="email-input" ng-model ="email" readonly>
 	  </div>
 	</div>
 
@@ -64,7 +64,7 @@
 
 
 	 <center>
-	   <button type="submit" class="btn btn-primary" ng-click="postItem()">Submit</button>
+	   <button type="submit" class="btn btn-primary" ng-click="postItem()" ng-disabled="show_submit_button">Submit</button>
 
 
 	 </center>

@@ -37,7 +37,7 @@ var app 									= express();
 //mongoose.connect('mongodb://localhost/book_rental');
 
 //this mongoose connection is for heroku
-mongoose.createConnection("mongodb://Rashul:Rashul12@ds119718.mlab.com:19718/book_sale");
+mongoose.createConnection("mongodb://Rashul:Rashul12@ds135680.mlab.com:35680/bookstore");
 
 mongoose.connect(process.env.MONGODB_URI, function(err){
 	if(err){
@@ -131,22 +131,18 @@ app.get('/auth/google/callback', passport.authenticate('google', {
 //All Post Requests.
 app.post('/api/post_item',  post_item_controller.postItem);
 app.post('/api/info/get',  get_item_info_controller.getItemInfo);
-app.post('/api/sendEmail', isLoggedIn, get_item_info_controller.sendEmail);
+app.post('/api/sendEmail', get_item_info_controller.sendEmail);
 // app.post('/api/sendEmail', isLoggedIn, function(req, res){
 // 	console.log('asdsad');
 // });
 
 
 function isLoggedIn(req, res, next) {
-
 	console.log('checking if logged in');
-  // if user is authenticated in the session, carry on
-  if (req.isAuthenticated()){
-  	return next();
-  }
-  else{
-  	res.send('error');
-  }
+	// if user is authenticated in the session, carry on
+	if (req.isAuthenticated()){
+		return next();
+	}
 
 }
 

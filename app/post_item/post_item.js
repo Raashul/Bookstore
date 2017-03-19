@@ -3,7 +3,14 @@
 		.controller('PostItemController',['Upload', '$scope', '$http', '$state', '$location', function(Upload, $scope, $http, $state, $location){
 
 			if(localStorage.getItem('user_name')== null || localStorage.getItem('user_name')== undefined){
-				$scope.no_user_logged_in = true
+				$scope.no_user_logged_in 		= true
+				$scope.show_submit_button		= true
+
+			}
+
+			else{
+				$scope.name = localStorage.getItem('user_name');
+				$scope.email = localStorage.getItem('user_email')
 			}
 
 

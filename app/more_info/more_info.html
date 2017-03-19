@@ -2,10 +2,10 @@
 
  <center>
 
- 	<h3>Book : {{post.item_name}}</h3>
- 	<h3>Seller: {{post.name}}</h3>
- 	<h3>Price: {{post.item_price}}$</h3>
- 	<h3>Version/Edition: {{post.item_version}}</h3>
+ 	<h4>Book : {{post.item_name}}</h4>
+ 	<h4>Seller: {{post.name}}</h4>
+ 	<h4>Price: {{post.item_price}}$</h4>
+ 	<h4>Version/Edition: {{post.item_version}}</h4>
 
  </center>
 
@@ -15,23 +15,20 @@
 <vr>
  <div class="row">
 
-  <div class="col-md-6">
+   <div class="col-md-8 col-md-offset-2">
 
-  	<p >{{post.item_text}}</p>
+      <p >{{post.item_text}}</p>
 
-  </div>
-  <div class="col-md-6">
-  	 <div class="image">
-          <a href=""><img class="item_image" ng-src="{{post.image}}"></a>
-
-         </div>
+    <div class="image">
+      <a href=""><img class="item_image" ng-src="{{post.image}}"></a>
+    </div>
 
   </div>
-</div>
+
+      </div>
 
 <hr>
 
-<br> <br> <br>
 
  <center>
  	<div class="alert alert-info" ng-show="no_user_logged_in">
@@ -40,7 +37,7 @@
   <div class="alert alert-success" ng-show="email_sent_alert">
   <strong>You have been sent an email with seller's contact information </strong>
   </div>
-	<a class="btn btn-primary btn-lg" ng-disabled = "no_user_logged_in" ng-click="sendEmailToSeller()">Contact Seller</button></a>
+	<button class="btn btn-primary btn-lg" ng-click="sendEmailToSeller()" ng-disabled = "no_user_logged_in" >Contact Seller</button>
  </center>
 
 
