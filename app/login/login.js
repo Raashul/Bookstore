@@ -15,8 +15,6 @@
 //Login With google button function
 		$scope.login_google = function(req, res){
 			$http.get('/auth/google').success(function(response){
-
-				console.log('hello');
 				console.log(response);
 				$location.path('/');
 			})

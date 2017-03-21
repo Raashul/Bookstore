@@ -1,6 +1,6 @@
 (function(){
 	angular.module('Rashul')
-		.controller('HomeController',[ '$scope', '$http', '$state', '$interval', "$location" , function($scope, $http, $state, $interval, $location){
+		.controller('HomeController',[ '$scope', "$rootScope", '$http', '$state', '$interval', "$location" , function($scope, $rootScope,  $http, $state, $interval, $location){
 
 			if(localStorage.getItem('user_name') != null){
 
@@ -11,8 +11,21 @@
 				$scope.display_text = "Hi " + name
 				$scope.display_login_tab = true;
 
+				//Hide or Display Login/ Logout Button
+				$rootScope.hide_login = true;
+				$rootScope.hide_logout = false;
+
 
 			}
+
+			//Hide or Display Login/ Logout Button
+			else{
+
+				$rootScope.hide_login = false;
+				$rootScope.hide_logout = true;
+			}
+
+
 
 
 		  //GET each question upon click.

@@ -7,6 +7,15 @@
 			localStorage.removeItem("user_name");
 			localStorage.removeItem("user_email");
 
+			//change url to home
+			$timeout(function(){
+
+		  	$location.path("/");
+
+			},2000);
+
+
+
 	}])
 
 

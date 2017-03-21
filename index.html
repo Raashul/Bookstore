@@ -42,8 +42,8 @@
 			</ul>
 
 			<ul class="nav navbar-nav navbar-right">
-				<li><a ng-href="#/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-				<li><a ng-href="#/logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+				<li ng-hide="hide_login"><a ng-href="#/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+				<li ng-hide="hide_logout"><a ng-href="#/logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
 			</ul>
 		</div><!-- /.navbar-collapse -->
 	</div><!-- /.container-fluid -->
