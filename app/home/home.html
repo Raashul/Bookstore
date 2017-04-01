@@ -1,8 +1,14 @@
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+ <div class="jumbotron jumbotron-image">
+  <h1 class="name_header">{{display_text}}</h1>
+</div>
+
+<br>
+
  <div class="container">
 
   <center>
-   <h3 class="name_header"> {{display_text}} <h3>
 
     <a class="book_type" ui-sref="category({category:'Science'})">Science <span class="badge">{{science_category}}</span></a>
     <a class="book_type" ui-sref="category({category:'Math'})">Math <span class="badge">{{math_category}}</span></a>
@@ -33,11 +39,11 @@
         <a href=""><img class="item_image" ng-src="{{post.image}}" alt="no image"></a>
       </div>
 
-      <p>
       <a class="lead item_name" ng-click="getQuestion(post._id)"><strong>{{post.item_name}}</strong> </a>
       <br> <br>
+
       <span class="item_description">{{post.item_text}} </span>
-      </p>
+
       <br>
 
       <div class="col-md-6">

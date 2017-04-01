@@ -6,6 +6,15 @@ Base elements
 body{
     font-family: "Inconsolata", serif;
     background-color: #FBFCFD;
+
+}
+
+.jumbotron-image{
+  background-image: url("../images/image.jpg");
+  background-size: 100% 100%;
+  height: 400px;
+  background-repeat: no-repeat;
+  margin-top: -20px;
 }
 
 
@@ -14,8 +23,8 @@ body{
 }
 
 .book_type{
-  font-size: 0.5em;
-  margin-right: 10px;
+  font-size: 0.9em;
+  margin-right: 15px;
   color: #949494;
 }
 
@@ -97,14 +106,15 @@ footer{
 
 
 
-.width{
+.sell-page-width{
   width: 60%;
+
 }
 
 
 
 .name_header{
-  font-family: "Amethysta", serif;
+
   font-size: 2em;
 }
 
