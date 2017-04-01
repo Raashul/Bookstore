@@ -83,12 +83,14 @@
 				if(initial){
 					$scope.posts = response;
 				}
+
 				else{
 					if(response.length > $scope.users.length){
 						$scope.incommingPost = response;
 					}
 
 				}
+
 			});
 		};
 

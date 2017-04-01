@@ -24,8 +24,6 @@ module.exports.postItem = function(req, res){
 	//Create a unique target path to avoid collision
 	var targetPath = path.join(__dirname, "../../uploads/" + post._id + uploadDate + file.name);
 
-	console.log(targetPath);
-	console.log(tempPath);
 
 	fs.move(tempPath, targetPath, function(err, data){
 		if(err){
