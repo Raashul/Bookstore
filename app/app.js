@@ -5,19 +5,20 @@
 		$urlRouterProvider.otherwise('/');
 
 			$stateProvider
-				.state('signUp',{
-					url: "/signup",
-					templateUrl: "app/signup/signup.html",
-					controller: "SignUpController"
 
-				})
+			.state('main',{
+				url: '/',
+				templateUrl: 'app/home/home.html',
+				controller: 'HomeController'
+			})
 
-
-		.state('main',{
-			url: '/',
-			templateUrl: 'app/home/home.html',
-			controller: 'HomeController'
+		.state('signUp',{
+			url: "/signup",
+			templateUrl: "app/signup/signup.html",
+			controller: "SignUpController"
 		})
+
+
 
 		.state('post_item',{
 			url:'/post-item',
@@ -32,13 +33,19 @@
 
 	  })
 
+		.state('category',{
+				url: '/post/category/:category',
+				templateUrl: 'app/category/category.html',
+				controller: 'CategoryController'
+			})
+
+
 		.state('profile_info', {
 			url: '/user?name/?email',
 			templateUrl: 'app/success_login/success_login.html',
 			controller:'SuccessLoginController'
 
 	  })
-
 
 		.state('logout',{
 			url: '/logout',

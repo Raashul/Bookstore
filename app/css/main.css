@@ -5,10 +5,18 @@ Base elements
 
 body{
     font-family: "Inconsolata", serif;
+    background-color: #FBFCFD;
 }
+
 
 #nav-height li{
   font-size: 1.1em;
+}
+
+.book_type{
+  font-size: 0.5em;
+  margin-right: 10px;
+  color: #949494;
 }
 
 #questions{
@@ -19,10 +27,12 @@ body{
 .posts{
   border-style: ridge;
   padding: 10px 10px 10px 10px;
+  box-shadow: 5px 5px 5px #888888;
 }
 
 .row{
   margin-top: 10px;
+
 }
 
 .post_item_form label{
@@ -91,10 +101,7 @@ footer{
   width: 60%;
 }
 
-.custom_font{
-  font-size: 1.1em;
-  font-family: "Droid Sans"
-}
+
 
 .name_header{
   font-family: "Amethysta", serif;

@@ -34,18 +34,18 @@ var app 									= express();
 
 
 //This mongoose connecttion is for localhost
-//mongoose.connect('mongodb://localhost/book_rental');
+mongoose.connect('mongodb://localhost/book_rental');
 
 //this mongoose connection is for heroku
-mongoose.createConnection("mongodb://Rashul:Password12@ds137220.mlab.com:37220/bookstore_final");
+// mongoose.createConnection("mongodb://Rashul:Password12@ds137220.mlab.com:37220/bookstore_final");
 
-mongoose.connect(process.env.MONGODB_URI, function(err){
-	if(err){
-		console.error(err);
-	}else{
-		console.log('success');
-	}
-})
+// mongoose.connect(process.env.MONGODB_URI, function(err){
+// 	if(err){
+// 		console.error(err);
+// 	}else{
+// 		console.log('success');
+// 	}
+// })
 
 
 
@@ -115,7 +115,7 @@ app.get('/auth/google/callback', passport.authenticate('google', {
 		//res.redirect('/post?id=58b1c638fe446305c8cc6b0d')
 		//res.redirect('/#/user?name=sadasd&email=asdasd@asd.com');
 
-	res.redirect("/#/user?name=" + request.name + "&email=" +request.email)
+	res.redirect("/#/user?name=" + request.name + "&email=" +request.email);
 
 
 
@@ -132,9 +132,8 @@ app.get('/auth/google/callback', passport.authenticate('google', {
 app.post('/api/post_item',  post_item_controller.postItem);
 app.post('/api/info/get',  get_item_info_controller.getItemInfo);
 app.post('/api/sendEmail', get_item_info_controller.sendEmail);
-// app.post('/api/sendEmail', isLoggedIn, function(req, res){
-// 	console.log('asdsad');
-// });
+app.post('/api/post/category/', get_item_info_controller.getCategoryPost);
+
 
 
 function isLoggedIn(req, res, next) {

@@ -35,6 +35,7 @@ module.exports.getItem = function(req, res){
             console.log(err);
             res.send('There was an error retreiving the post. Please Try again later')
         }else{
+
             res.json(allPosts);
 
         }

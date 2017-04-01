@@ -4,6 +4,13 @@
   <center>
    <h3 class="name_header"> {{display_text}} <h3>
 
+    <a class="book_type" ui-sref="category({category:'Science'})">Science <span class="badge">{{science_category}}</span></a>
+    <a class="book_type" ui-sref="category({category:'Math'})">Math <span class="badge">{{math_category}}</span></a>
+    <a class="book_type" ui-sref="category({category: 'English'})">English <span class="badge" >{{english_category}}</span></a>
+    <a href="#" class="book_type" ui-sref="category({category:'History'})">History <span class="badge">{{history_category}}</span></a>
+    <a href="#" class="book_type" ui-sref="category({category:'Language'})">Language <span class="badge">{{language_category}}</span></a>
+    <a href="#" class="book_type" ui-sref="category({category:'Other'})">Other <span class="badge">{{other_category}}</span></a>
+
   </center>
 
   <br> <br>
@@ -33,13 +40,11 @@
       </p>
       <br>
 
-      <div class="col-md-4 custom_font">
-        <p>
-        Price
-        <p class="lead" ng-click="getQuestion(user._id)"><strong>{{post.item_price}}$</strong></p>
-        Version
-        <p class="lead" ng-click="getQuestion(user._id)"><strong>{{post.item_version}}</strong></p>
-        </p>
+      <div class="col-md-6">
+
+        <p class="item_description" >Price: {{post.item_price}}$</p>
+        <p class="item_description">Version: {{post.item_version}}</p>
+        <p class="item_description">ISBN Number: {{post.isbn_number}}</p>
 
         <a ng-click="getQuestion(post._id)">View More Details</a>
 
@@ -47,11 +52,6 @@
 
 
       </div>
-
-
-
-
-
 
 
       </div>

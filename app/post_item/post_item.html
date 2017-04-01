@@ -27,7 +27,7 @@
 	<div class="form-group row post_item_form">
 	  <label for="item-name-input" class="col-2 col-form-label">Item Name</label>
 	  <div class="col-10">
-	    <input class="form-control" type="text" value="" id="item-name-input" ng-model ="item" >
+	    <input class="form-control" type="text" value="" id="item-name-input" ng-model ="item" required>
 	  </div>
 	</div>
 
@@ -35,7 +35,7 @@
 	<div class="form-group row post_item_form">
 	  <label for="text-input" class="col-2 col-form-label">About the Item</label>
 	  <div class="col-10">
-	    <textarea class="form-control" id="text-input" rows="4"  ng-model ="text"></textarea>
+	    <textarea class="form-control" id="text-input" rows="4"  ng-model ="text" required></textarea>
 	  </div>
 	</div>
 
@@ -51,14 +51,35 @@
 	<div class="form-group row post_item_form">
 	  <label for="price-input" class="col-2 col-form-label">Price ($)</label>
 	  <div class="col-10">
-	    <input class="form-control" type="number" value="" id="price-input" ng-model ="price" >
+	    <input class="form-control" type="number" value="" id="price-input" ng-model ="price" required>
 	  </div>
 	</div>
 
 	<div class="form-group row post_item_form">
 	  <label for="version-input" class="col-2 col-form-label">Edition/Version</label>
 	  <div class="col-10">
-	    <input class="form-control" type="String" value="" id="version-input" ng-model ="edition">
+	    <input class="form-control" type="String" value="" id="version-input" ng-model ="edition" required>
+	  </div>
+	</div>
+
+	<div class="form-group row post_item_form">
+	  <label for="version-input" class="col-2 col-form-label">ISBN Number</label>
+	  <div class="col-10">
+	    <input class="form-control" type="String" value="" id="version-input" ng-model ="isbn_number" required>
+	  </div>
+	</div>
+
+	<div class="form-group row post_item_form">
+	  <label for="version-input" class="col-2 col-form-label">Category</label>
+	  <div class="col-10">
+	    <select class="form-control" id="category-input" ng-model="category" required>
+			  <option>Science</option>
+			  <option>Math</option>
+			  <option>English</option>
+			  <option>History</option>
+			  <option>Language</option>
+			  <option>Other</option>
+			</select>
 	  </div>
 	</div>
 

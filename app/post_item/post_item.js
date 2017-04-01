@@ -16,6 +16,8 @@
 
 		$scope.postItem = function(req, res){
 
+			console.log($scope.isbn_number);
+
 			$scope.$watch(function(){
 				return $scope.file
 			}, function(){
@@ -36,7 +38,9 @@
 					item_text: $scope.text,
 					item_price: $scope.price,
 					item_version: $scope.edition,
-					image : ""
+					image : "",
+					category: $scope.category,
+					isbn_number: $scope.isbn_number
 						},
 				file: file
 

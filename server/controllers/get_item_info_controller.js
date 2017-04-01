@@ -78,7 +78,30 @@ module.exports.sendEmail = function(req, res){
 
 		}
 	})
+}
+
+
+
+module.exports.getCategoryPost = function(req, res){
+
+
+
+	var category_to_search = req.body.category;
+
+	Post.find({'category': category_to_search}, function(err, posts){
+		if (err){
+			console.log(err);
+		}
+		else{
+			res.json(posts);
+		}
+	})
+
+
 
 }
+
+
+
 
 
