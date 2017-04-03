@@ -6,13 +6,10 @@
 				$scope.no_user_logged_in = true;
 			}
 
-
-
 		 var request = {
 			id : $location.search().id,
 			send_to: localStorage.getItem('user_email')
 		  }
-
 		$http.post('api/info/get', request).success(function(response){
 
 			//response is the Post Information we received
@@ -22,7 +19,6 @@
 			console.log(err);
 		})
 
-
 		// $scope.contactSeller = function(req,res){
 
 		//     $http.get('api/test').success(function(response){
@@ -31,13 +27,9 @@
 		//     });
 
 		// }
-
 		$scope.sendEmailToSeller = function(){
 
 			$http.post('api/sendEmail', request).success(function(response){
-
-				console.log(response);
-
 				//response is the Post Information we received
 				var data = response;
 				var email = response.email;
@@ -52,10 +44,7 @@
 			})
 		}
 
-
 }])
-
-
 
 
 }())

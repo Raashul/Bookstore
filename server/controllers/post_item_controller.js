@@ -10,8 +10,6 @@ module.exports.postItem = function(req, res){
 	var post = new Post(req.body);
 	var file = req.files.file;
 
-
-
 	var uploadDate = new Date().toISOString();
 	uploadDate = uploadDate.replace(".", "");
 	uploadDate = uploadDate.replace("-", "");
@@ -51,9 +49,6 @@ module.exports.postItem = function(req, res){
 
 		}
 	})
-
-
-
 
 
 }

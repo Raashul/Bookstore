@@ -15,23 +15,16 @@ module.exports.getItemInfo = function(req, res){
 		if(err){
 			console.log(err);
 			res.send(err);
-		}else{
-
+		}
+		else{
 			res.json(post);
 
 		}
 	})
 
-
 }
 
-
-
 module.exports.sendEmail = function(req, res){
-
-	console.log('trying to send email');
-
-
 	//req.body will contain the Post ID
 	//We will use this id to find the item in the database.
 
@@ -39,8 +32,6 @@ module.exports.sendEmail = function(req, res){
 	var send_to = req.body.send_to;
 
 	Post.findById(id, function(err, post){
-
-
 		if(err){
 			console.log(err);
 			res.send(err);
@@ -54,7 +45,6 @@ module.exports.sendEmail = function(req, res){
 		}
 	});
 
-
 	var mailOptions ={
 		from: '<noreply@gmail.com>',
 		to: send_to,
@@ -64,14 +54,15 @@ module.exports.sendEmail = function(req, res){
 
 	transporter.sendMail(mailOptions, function(error, info){
 
-		console.log('email object created');
+
 		if(error){
 			console.log(error);
 		}
 		else{
-			console.log('Message sent: ' + info.response);
+
 			res.json(mailOptions);
 		}
+
 		transporter.close();
 
 	});
@@ -83,8 +74,6 @@ module.exports.sendEmail = function(req, res){
 
 
 module.exports.getCategoryPost = function(req, res){
-
-
 
 	var category_to_search = req.body.category;
 

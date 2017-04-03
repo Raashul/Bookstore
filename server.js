@@ -7,17 +7,10 @@ var passport 						= require('passport');
 //require('./app/config/passport.js')(passport);
 require('./server/controllers/passport.js')(passport);
 
-
-
 var multipart 							= require('connect-multiparty');
 var multipartMiddleware			= multipart();
 
-
-
 var passport_controller     = require('./server/controllers/passport');
-
-
-
 
 //Server Controller Files
 
@@ -25,20 +18,15 @@ var get_post_controller 						= require('./server/controllers/get_item-controlle
 var post_item_controller 						= require('./server/controllers/post_item_controller');
 var get_item_info_controller        = require('./server/controllers/get_item_info_controller');
 
-
-
-
 var app 									= express();
-
-
 
 
 //This mongoose connecttion is for localhost
 
 mongoose.connect('mongodb://localhost/book_rental');
 
-//this mongoose connection is for heroku
 
+//this mongoose connection is for heroku
 
 // mongoose.createConnection("mongodb://Rashul:Password12@ds137220.mlab.com:37220/bookstore_final");
 
@@ -55,16 +43,9 @@ mongoose.connect('mongodb://localhost/book_rental');
 app.use(passport.initialize());
 app.use(passport.session());
 
-
-
 app.set('views', __dirname);
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
-
-
-
-
-
 
 app.use(bodyParser.json());
 app.use(multipartMiddleware);
@@ -73,9 +54,6 @@ app.use('/app', express.static(__dirname + "/app"))
 app.use('/node_modules', express.static(__dirname + '/node_modules'));
 app.use('/server', express.static(__dirname + '/server'));
 app.use('/uploads', express.static(__dirname+"/uploads"));
-
-
-
 
 app.get('/', function(req, res){
 
@@ -86,21 +64,6 @@ app.get('/', function(req, res){
 
 //All get requests
 app.get('/api/home/getPosts', get_post_controller.getItem);
-
-// app.get('/auth/facebook',
-//   passport.authenticate('facebook'));
-
-// app.get('/auth/facebook',
-// 	passport.authenticate('facebook'));
-
-// app.get('/auth/facebook/callback',
-// 		passport.authenticate('facebook', {
-// 			successRedirect : '/',
-// 			failureRedirect : '/login'
-// 		}));
-
-
-
 
 //GOOGLE AUTHENTICATION
 app.get('/auth/google', passport.authenticate('google', { scope:['profile', 'email']}));
@@ -115,29 +78,22 @@ app.get('/auth/google/callback', passport.authenticate('google', {
 			name: req.user.google.name
 		}
 
-		//res.redirect('/post?id=58b1c638fe446305c8cc6b0d')
-		//res.redirect('/#/user?name=sadasd&email=asdasd@asd.com');
-
+	//res.redirect('/post?id=58b1c638fe446305c8cc6b0d')
+	//res.redirect('/#/user?name=sadasd&email=asdasd@asd.com');
 	res.redirect("/#/user?name=" + request.name + "&email=" +request.email);
 
-
-
-		// console.log(JSON.stringify(request));
-		// return res.json(JSON.stringify(request));
+	// console.log(JSON.stringify(request));
+	// return res.json(JSON.stringify(request));
 
 	//res.redirect('/');
 		//return done(JSON.stringify(request));
 	});
-
-
 
 //All Post Requests.
 app.post('/api/post_item',  post_item_controller.postItem);
 app.post('/api/info/get',  get_item_info_controller.getItemInfo);
 app.post('/api/sendEmail', get_item_info_controller.sendEmail);
 app.post('/api/post/category/', get_item_info_controller.getCategoryPost);
-
-
 
 function isLoggedIn(req, res, next) {
 	console.log('checking if logged in');
@@ -147,14 +103,6 @@ function isLoggedIn(req, res, next) {
 	}
 
 }
-
-
-
-
-// app.listen('3000', function(){
-// 	console.log('Listening in port 3000');
-// });
-
 app.listen(process.env.PORT || 3000, function(){
   console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
 });

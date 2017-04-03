@@ -13,15 +13,10 @@ module.exports = {
 		'callbackURL': 'http://localhost:3000/auth/google/callback'
 		//'callbackURL': 'https://pacific-basin-33157.herokuapp.com/auth/google/callback'
 
-
 	},
-
 	'emailAuth':{
 		'authEmail': 'dontreplybookstore@gmail.com',
 		'authPassword':'Noreply123'
 	}
-
-
-
 
 }
