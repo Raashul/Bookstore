@@ -1,6 +1,8 @@
 (function(){
 	angular.module('Rashul')
-		.controller('HomeController',[ '$scope', "$rootScope", '$http', '$state', '$interval', "$location" , '$window', function($scope, $rootScope,  $http, $state, $interval, $location, $window){
+		.controller('HomeController',[ '$scope', "$rootScope", '$http', '$state', 
+			'$interval', "$location" , '$window', 
+			function($scope, $rootScope,  $http, $state, $interval, $location, $window){
 
 			//First of all check if the user is logged in from localhost
 			if(localStorage.getItem('user_name') != null){
@@ -135,17 +137,9 @@
 			console.log('testing');
 
 
-
-
-
 		}
 
-
-
-
 	}])
-
-
 
 
 }())
