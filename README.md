@@ -16,22 +16,8 @@ Express
 Angular.js
 Nodejs
 
+<img src ='./screenshots/image1.png' width="100%" height="100%" />
 
-To Run it:
+<br> <br>
 
-1.Install Node.js and Mongodb
-
-2. Clone the repository
-
-3. In terminal, TYPE
-
-4. cd Rent_A_Book
-
-5.  git clone
-
-6. nodemon server.js
-
-7. npm install
-
-8. nodemon server.js
-
+<img src ='./screenshots/image2.png' width="100%" height="100%" />
