@@ -22,51 +22,6 @@ module.exports = function(passport) {
 		});
 	});
 
-	passport.use(new FacebookStrategy({
-		clientID: configAuth.facebookAuth.clientID,
-		clientSecret: configAuth.facebookAuth.clientSecret,
-		callbackURL: configAuth.facebookAuth.callbackURL,
-		profileFields: ['id', 'emails', 'name']
-	},
-
-	//   function(accessToken, refreshToken, profile, done) {
-
-	//     process.nextTick(function(){
-
-	//         console.log('testing');
-	//         console.log(req.user);
-
-	//         User.findOne({'facebook.id': profile.id}, function(err, user){
-	//             if(err){
-	//                  return done(err);
-	//             }if(user){
-
-	//                 console.log('user found');
-	//                 return done(null, user);
-	//             }else{
-
-	//                 var newUser = new User();
-
-	//                 newUser.facebook.id = profile.id;
-	//                 newUser.facebook.token = accessToken;
-	//                 newUser.facebook.name  = profile.name.givenName + ' ' + profile.name.familyName;
-
-	//                 newUser.save(function(err){
-	//                     if(err){
-	//                         throw err;
-
-	//                     }else{
-	//                         return done(null, newUser);
-	//                     }
-	//                 })
-	//             }
-	//         })
-	//     })
-
-	//   }
-	// ));
-
-
 	//Google Strategy
 	passport.use(new GoogleStrategy({
 		clientID: configAuth.googleAuth.clientID,
@@ -79,7 +34,6 @@ module.exports = function(passport) {
 		process.nextTick(function(){
 
 				User.findOne({'google.id': profile.id}, function(err, user){
-
 					console.log(user);
 					if(err){
 							 return done(err);
@@ -89,31 +43,24 @@ module.exports = function(passport) {
 						return done(null, user);
 					}
 					else{
-
 						var newUser = new User();
-
 						newUser.google.id       = profile.id;
 						newUser.google.token    = accessToken;
 						newUser.google.name     = profile.displayName;
 						newUser.google.email    = profile.emails[0].value;
-
 						newUser.save(function(err){
-								if(err){
-										throw err;
-
-								}
-								else{
-									return done(null, newUser);
-								}
+							if(err){
+									throw err;
+							}
+							else{
+								return done(null, newUser);
+							}
 						})
 					}
+
 				})
 		})
 
-	}
-	));
-
-
-
+	}));
 
 };
