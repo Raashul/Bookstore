@@ -1,13 +1,11 @@
 About:
 
-User can see posts about book.
+Built a book selling web application targeted for Caldwell University students. 
+Implemented Google Sign-In and secure api endpoints for CRUD items for sale and contacting the seller.
 
-User have to login in with their gmail account before they can contact the seller of the book OR post their book for sale.
-
-Once logged in, if user wants the book, they will be sent an email with the seller's email address for them to contact.
-
-User can refine search based on the category of books they want.
-
+1. Sign-In via Google
+2. Creating, Updating, Deleting Book Items for Sale
+3. An email is sent out to the seller, if a buyer is interested in the item. 
 
 Technologies Used:
 
